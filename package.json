@@ -3,7 +3,29 @@
   "version": "2.0.0",
   "description": "Semantic Versioning middleware",
   "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "format": "prettier-eslint --write \"src/**/*.js\"",
+    "lint": "eslint src"
+  },
   "repository": "https://github.com/mrpatiwi/koa-semver",
   "author": "Patricio López <lopezjuripatricio@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=7.6.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "semver": "^5.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-prettier": "^1.5.0",
+    "eslint-plugin-prettier": "^2.0.1",
+    "jest": "^19.0.2",
+    "koa": "^2.2.0",
+    "prettier": "^0.22.0",
+    "prettier-eslint-cli": "^3.2.0",
+    "supertest": "^3.0.0"
+  }
 }
