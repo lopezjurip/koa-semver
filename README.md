@@ -24,7 +24,7 @@ const app = new Koa();
 app.use(logger());
 
 const version = semver();
-version.use(semver.param(":version"));
+version.use(semver.handlers.param(":version"));
 
 const router = new Router();
 
@@ -53,4 +53,10 @@ Run Jest test suite with:
 
 ```sh
 yarn test
+
+# With coverage
+yarn test -- --coverage
+
+# Watch for changes
+yarn test -- --watch
 ```
