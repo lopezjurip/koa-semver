@@ -1,3 +1,4 @@
 __tests__
 coverage
 .eslintrc.js
+yarn-error.log
