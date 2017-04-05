@@ -14,7 +14,6 @@ class KoaSemver {
   }
 
   match(target = "*", middleware) {
-    target = semver.clean(target);
     return async (ctx, next) => {
       const requested = this.modes.reduce(
         (acc, handler) => acc || handler(ctx),

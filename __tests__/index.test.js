@@ -10,10 +10,10 @@ const handler = (message = "handler") =>
     return next();
   };
 
-const handlerEnd = (message = "end") =>
-  ctx => {
-    ctx.body = (ctx.body || []).concat(message);
-  };
+// const handlerEnd = (message = "end") =>
+//   ctx => {
+//     ctx.body = (ctx.body || []).concat(message);
+//   };
 
 describe("semver", () => {
   let app;
@@ -24,11 +24,15 @@ describe("semver", () => {
     server = app.listen();
   });
 
+  afterEach(async () => {
+    await server.close();
+  });
+
   it("should match first middleware when no method is set up", async () => {
     const version = semver();
 
-    app.use(version.match("2.0.0", handler("1")));
-    app.use(version.match("1.0.0", handler("2")));
+    app.use(version.match("^2.0.0", handler("1")));
+    app.use(version.match("^1.0.0", handler("2")));
 
     const { body } = await request(server).get("/");
     expect(body).toEqual(["1"]);
