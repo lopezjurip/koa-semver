@@ -1,4 +1,5 @@
 const semver = require("semver");
+const isFunction = require("lodash/isFunction");
 
 class KoaSemver {
   constructor(modes = []) {
@@ -6,14 +7,18 @@ class KoaSemver {
   }
 
   use(handler) {
-    handler && this.modes.push(handler);
+    if (isFunction(handler)) {
+      this.modes.push(handler);
+    } else {
+      throw new Error("koa-semver `use` must receive a function as argument");
+    }
   }
 
   clone() {
-    return new KoaSemver(this.modes);
+    return new KoaSemver([...this.modes]);
   }
 
-  match(target = "*", middleware) {
+  match(target = "*", middleware = null) {
     return async (ctx, next) => {
       const requested = this.modes.reduce(
         (acc, handler) => acc || handler(ctx),
@@ -22,8 +27,8 @@ class KoaSemver {
 
       const satisfies = !requested || semver.satisfies(requested, target);
 
-      if (!ctx.state.version && middleware && satisfies) {
-        ctx.state.version = {
+      if (!ctx.state.semver && middleware && satisfies) {
+        ctx.state.semver = {
           target,
           requested,
         };

@@ -3,6 +3,7 @@
 const Koa = require("koa");
 const request = require("supertest");
 const semver = require("..");
+const _ = require("lodash");
 
 const handler = (message = "handler") =>
   (ctx, next) => {
@@ -26,6 +27,26 @@ describe("semver", () => {
 
   afterEach(async () => {
     await server.close();
+  });
+
+  it("should only accept function as handlers", () => {
+    const version = semver();
+    expect(() => version.use(1)).toThrow();
+    expect(() => version.use("string")).toThrow();
+    expect(() => version.use({})).toThrow();
+
+    version.use(_.noop);
+    expect(version.modes).toHaveLength(1);
+  });
+
+  it("should clone the array of modes as a different reference", () => {
+    const version = semver();
+    version.use(_.noop);
+    version.use(_.noop);
+
+    const cloned = version.clone();
+    expect(cloned).not.toBe(version);
+    expect(cloned.modes).not.toBe(version.modes);
   });
 
   it("should match first middleware when no method is set up", async () => {
