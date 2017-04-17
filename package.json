@@ -1,6 +1,6 @@
 {
   "name": "koa-semver",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Semantic Versioning middleware for Koa",
   "main": "src/index.js",
   "scripts": {
