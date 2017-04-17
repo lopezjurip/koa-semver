@@ -1,7 +1,7 @@
 {
   "name": "koa-semver",
   "version": "0.1.2",
-  "description": "Semantic Versioning middleware",
+  "description": "Semantic Versioning middleware for Koa",
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
@@ -31,6 +31,7 @@
     "eslint-plugin-prettier": "^2.0.1",
     "jest": "^19.0.2",
     "koa": "^2.2.0",
+    "koa-router": "next",
     "prettier": "^0.22.0",
     "prettier-eslint-cli": "^3.2.0",
     "supertest": "^3.0.0"

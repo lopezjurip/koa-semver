@@ -1,7 +1,10 @@
+const assert = require("assert");
 const semver = require("semver");
 const trimStart = require("lodash/trimStart");
 
-exports.param = function handlerParam(name = "version") {
+exports.param = function param(name) {
+  assert(name, "Must set 'name' argument on param handler");
+
   name = trimStart(name, ":");
   return ctx => {
     const value = ctx.params[name];
@@ -9,14 +12,18 @@ exports.param = function handlerParam(name = "version") {
   };
 };
 
-exports.header = function handlerHeader(name = "X-API-Version") {
+exports.header = function header(name) {
+  assert(name, "Must set 'name' argument on header handler");
+
   return ctx => {
     const value = ctx.get(name);
     return value ? semver.clean(value) : null;
   };
 };
 
-exports.query = function handlerQS(name = "semver") {
+exports.query = function query(name) {
+  assert(name, "Must set 'name' argument on query handler");
+
   return ctx => {
     const value = ctx.query[name];
     return value ? semver.clean(value) : null;
