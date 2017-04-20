@@ -25,23 +25,22 @@ class KoaSemver {
   }
 
   matcher(target = "*") {
-    return middleware =>
-      (ctx, next) => {
-        const requested = this.modes.reduce(
-          (acc, handler) => acc || handler(ctx),
-          null
-        );
+    return middleware => (ctx, next) => {
+      const requested = this.modes.reduce(
+        (acc, handler) => acc || handler(ctx),
+        null
+      );
 
-        if (middleware && KoaSemver.test(requested, target)) {
-          ctx.state.semver = {
-            target,
-            requested,
-          };
-          return middleware(ctx, next);
-        } else {
-          return next();
-        }
-      };
+      if (middleware && KoaSemver.test(requested, target)) {
+        ctx.state.semver = {
+          target,
+          requested,
+        };
+        return middleware(ctx, next);
+      } else {
+        return next();
+      }
+    };
   }
 
   match(target = "*", middleware = null) {

@@ -27,13 +27,13 @@
   },
   "devDependencies": {
     "eslint": "^3.19.0",
-    "eslint-config-prettier": "^1.5.0",
+    "eslint-config-prettier": "^1.7.0",
     "eslint-plugin-prettier": "^2.0.1",
     "jest": "^19.0.2",
     "koa": "^2.2.0",
     "koa-router": "next",
-    "prettier": "^0.22.0",
-    "prettier-eslint-cli": "^3.2.0",
+    "prettier": "^1.2.2",
+    "prettier-eslint-cli": "^3.4.1",
     "supertest": "^3.0.0"
   }
 }
