@@ -1,6 +1,6 @@
 # koa-semver
 
-[![npm](https://img.shields.io/npm/v/npm.svg)](https://npmjs.org/package/koa-semver) [![NPM Downloads](https://img.shields.io/npm/dm/koa-semver.svg?style=flat)](https://npmjs.org/package/koa-semver) [![Node.js Version](https://img.shields.io/node/v/koa-semver.svg?style=flat)](http://nodejs.org/download/) [![Build Status](http://img.shields.io/travis/mrpatiwi/koa-semver.svg?style=flat)](http://travis-ci.org/mrpatiwi/koa-semver)
+[![npm](https://img.shields.io/npm/v/koa-semver.svg)](https://npmjs.org/package/koa-semver) [![NPM Downloads](https://img.shields.io/npm/dm/koa-semver.svg?style=flat)](https://npmjs.org/package/koa-semver) [![Node.js Version](https://img.shields.io/node/v/koa-semver.svg?style=flat)](http://nodejs.org/download/) [![Build Status](http://img.shields.io/travis/mrpatiwi/koa-semver.svg?style=flat)](http://travis-ci.org/mrpatiwi/koa-semver) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 Match middleware with [Semantic Versioning](http://semver.org/).
 
@@ -8,8 +8,8 @@ Built with [npm/node-semver](https://github.com/npm/node-semver) to match famili
 
 **Requisites:**
 
-* [Node.js](https://nodejs.org) >= 7.6.0
-* [Koa](https://github.com/koajs/koa) >= 2.0.0
+*   [Node.js](https://nodejs.org) >= 7.6.0
+*   [Koa](https://github.com/koajs/koa) >= 2.0.0
 
 ## Installation
 
