@@ -1,6 +1,7 @@
 __tests__
 coverage
 .eslintrc.js
+.eslintignore
 yarn-error.log
 example
 .travis.yml

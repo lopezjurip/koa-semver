@@ -6,11 +6,10 @@ const Semver = require("..");
 const request = require("supertest");
 const _ = require("lodash");
 
-const handler = (message = "handler", final = true) =>
-  (ctx, next) => {
-    ctx.body = (ctx.body || []).concat(message);
-    if (!final) return next();
-  };
+const handler = (message = "handler", final = true) => (ctx, next) => {
+  ctx.body = (ctx.body || []).concat(message);
+  if (!final) return next();
+};
 
 describe("Semver", () => {
   let app;
